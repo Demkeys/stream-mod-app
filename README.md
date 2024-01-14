@@ -4,7 +4,9 @@
  __NOTE: I made this for my own use. Based on my setup, I have my own workflow, and this program works great for my own purposes. This isn't necesarily a general purpose program. But I'm sharing the code here, for whoever it helps.__
 
 ### Requirements:
-* [TwitchLib](https://github.com/TwitchLib/TwitchLib): This project doesn't ship with TwitchLib so be sure to install it before compiling and running the code.
+* Packages: This project doesn't ship with the libraries so you'll need to install them to be able to build and run this project. Versions must be equal or higher than specified versions.
+ * [TwitchLib](https://github.com/TwitchLib/TwitchLib) v3.5.0 or above
+ * [TwitchLib.Api](https://github.com/TwitchLib/TwitchLib.Api/) v3.9.0 or above: Explaining this is gonna be a bit of a paragraph. This component is a submodule in TwitchLib and gets installed along with other components when you install TwitchLib. However, at the time of updating this README (14/01/2024), the TwitchLib v3.5.0 package hosted on NuGet doesn't contain the TwitchLib.Api v3.9.0 submodule, it contains an older version. Certain methods like GetFollowedChannelsAsync and GetChannelFollowersAsync were only added in TwitchLib.Api v3.9.0. So after you have installed TwitchLib from NuGet, check and see if TwitchLib.Api v3.9.0 or above is installed. If it is not, install that from NuGet as well, and you're good to go.
 * (Optional) Two machines. I use main app and auth generator on two separate machines that are on the same network, because that suits my workflow. You can use it how you wish.
 
 ### Note about auth workflow:

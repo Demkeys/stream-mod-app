@@ -1,0 +1,12 @@
+C:\Users\Demkeys\Work\Projects\StreamModApp\SMAConsoleAppv2\bin\Release\net7.0\SMAConsoleAppv2.deps.json
+C:\Users\Demkeys\Work\Projects\StreamModApp\SMAConsoleAppv2\bin\Release\net7.0\SMAConsoleAppv2.dll
+C:\Users\Demkeys\Work\Projects\StreamModApp\SMAConsoleAppv2\bin\Release\net7.0\SMAConsoleAppv2.pdb
+C:\Users\Demkeys\Work\Projects\StreamModApp\SMAConsoleAppv2\obj\Release\net7.0\SMAConsoleAppv2.csproj.AssemblyReference.cache
+C:\Users\Demkeys\Work\Projects\StreamModApp\SMAConsoleAppv2\obj\Release\net7.0\SMAConsoleAppv2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Demkeys\Work\Projects\StreamModApp\SMAConsoleAppv2\obj\Release\net7.0\SMAConsoleAppv2.AssemblyInfoInputs.cache
+C:\Users\Demkeys\Work\Projects\StreamModApp\SMAConsoleAppv2\obj\Release\net7.0\SMAConsoleAppv2.AssemblyInfo.cs
+C:\Users\Demkeys\Work\Projects\StreamModApp\SMAConsoleAppv2\obj\Release\net7.0\SMAConsoleAppv2.csproj.CoreCompileInputs.cache
+C:\Users\Demkeys\Work\Projects\StreamModApp\SMAConsoleAppv2\obj\Release\net7.0\SMAConsoleAppv2.dll
+C:\Users\Demkeys\Work\Projects\StreamModApp\SMAConsoleAppv2\obj\Release\net7.0\refint\SMAConsoleAppv2.dll
+C:\Users\Demkeys\Work\Projects\StreamModApp\SMAConsoleAppv2\obj\Release\net7.0\SMAConsoleAppv2.pdb
+C:\Users\Demkeys\Work\Projects\StreamModApp\SMAConsoleAppv2\obj\Release\net7.0\ref\SMAConsoleAppv2.dll

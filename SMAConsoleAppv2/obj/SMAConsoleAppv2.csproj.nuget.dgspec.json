@@ -41,6 +41,10 @@
             "TwitchLib": {
               "target": "Package",
               "version": "[3.5.3, )"
+            },
+            "TwitchLib.Api": {
+              "target": "Package",
+              "version": "[3.10.0-preview-e47ba7f, )"
             }
           },
           "imports": [

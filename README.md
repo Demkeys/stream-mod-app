@@ -1,7 +1,9 @@
 # stream-mod-app
  A simple app I use for interacting with the Twitch API using [TwitchLib](https://github.com/TwitchLib/TwitchLib). At the moment it's mostly for moderation related actions. But later on I might use it for other things. There is a Python script that can be used to generate auth URL and send the auth token to the app so it can be written to a file and used later.
  
- __NOTE: I made this for my own use. Based on my setup, I have my own workflow, and this program works great for my own purposes. This isn't necesarily a general purpose program. But I'm sharing the code here, for whoever it helps.__
+ __NOTE:__
+ * As I continue to add new code and improve existing code, there's a decent chance that each update will introduce a breaking change. 
+ * I made this for my own use. Based on my setup, I have my own workflow, and this program works great for my own purposes. This isn't necesarily a general purpose program. But I'm sharing the code here, for whoever it helps.
 
 ### Requirements:
 * Packages: This project doesn't ship with the libraries so you'll need to install them to be able to build and run this project. Versions must be equal or higher than specified versions.

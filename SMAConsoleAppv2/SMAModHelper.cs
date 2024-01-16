@@ -219,8 +219,7 @@ public static class SMAModHelper
     */
     public static async Task MassBanChattersByCreatedAfterDate(
         bool confirmEachBan, TwitchAPI api, string broadcaster_id, 
-        string mod_id, string? paginationCursor = null, 
-        DateTime? createdAfter = null
+        string mod_id, DateTime createdAfter, string? paginationCursor = null
     )
     {
         GetChattersResponse chatters = await api.Helix.Chat.GetChattersAsync(
@@ -241,6 +240,71 @@ public static class SMAModHelper
         foreach(var user in users.Users)
         {
             if(user.CreatedAt > createdAfter)
+            {
+                chattersListStr += $"{user.Login}, {user.CreatedAt}\n";
+                banUsersList.Add(user);
+            }
+        }
+        WL(chattersListStr);
+        WL($"Pagination Cursor: {chatters.Pagination.Cursor}");
+
+        WL("Ban all listed chatters? (y/n)");
+        if(Console.ReadKey().Key != ConsoleKey.Y) return;
+
+        WL("Are you sure? (y/n)");
+        if(Console.ReadKey().Key != ConsoleKey.Y) return;
+
+        foreach(var user in banUsersList)
+        {
+            bool shouldBan = false;
+            if(confirmEachBan)
+            {
+                WL($"Ban {user.Login}? (y/n)");
+                shouldBan = Console.ReadKey().Key == ConsoleKey.Y;
+            }
+
+            if(shouldBan)
+            {
+                await api.Helix.Moderation.BanUserAsync(
+                    broadcaster_id, mod_id, new BanUserRequest {
+                        UserId=user.Id, Reason="Mass ban."
+                    }
+                );
+                WL("Ok ban.");
+            }
+        }
+
+
+    }
+
+    /* 
+    Honestly just a different version of MassBanChattersByCreatedAfterDate. 
+    This uses a TimeSpan to compare instead of just comparing dates. 'acctCreationTimeSpan' specifies the minimum age an account must be to avoid a ban. If the account age is below the specified TimeSpan, it's added to the ban list.
+    */
+    public static async Task MassBanChattersByAcctCreationTimeSpan(
+        bool confirmEachBan, TwitchAPI api, string broadcaster_id, 
+        string mod_id, TimeSpan acctCreationTimeSpan, string? paginationCursor = null 
+        
+    )
+    {
+        GetChattersResponse chatters = await api.Helix.Chat.GetChattersAsync(
+            broadcaster_id, mod_id, 100, paginationCursor, null
+        );
+        List<string> logins = new List<string>();
+        foreach(var chatter in chatters.Data)
+        {
+            logins.Add(chatter.UserLogin);
+        }
+
+        GetUsersResponse users = await api.Helix.Users.GetUsersAsync(
+            null, logins, null
+        );
+        if(users.Users.Length > 0) WL("Chatters list:");
+        string chattersListStr = "";
+        List<User> banUsersList = new();
+        foreach(var user in users.Users)
+        {
+            if((DateTime.Now-user.CreatedAt.ToLocalTime())<acctCreationTimeSpan)
             {
                 chattersListStr += $"{user.Login}, {user.CreatedAt}\n";
                 banUsersList.Add(user);
